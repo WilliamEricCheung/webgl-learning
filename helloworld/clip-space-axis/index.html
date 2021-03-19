@@ -1,0 +1,32 @@
+<canvas id="c"></canvas>
+<script id="vertex-shader-2d" type="notjs">
+// 一个属性值，将会从缓冲中获取数据
+attribute vec4 a_position;
+
+// 所有着色器都有一个main方法
+void main() {
+
+  // gl_Position 是一个顶点着色器主要设置的变量
+  gl_Position = a_position;
+}
+</script>
+<script id="fragment-shader-2d" type="notjs">
+// 片断着色器没有默认精度，所以我们需要设置一个精度
+// mediump是一个不错的默认值，代表“medium precision”（中等精度）
+precision mediump float;
+
+void main() {
+  // gl_FragColor是一个片断着色器主要设置的变量
+  gl_FragColor = vec4(1, 0, 0.5, 1); // 返回“红紫色”
+}
+</script>
+<!--
+for most samples webgl-utils only provides shader compiling/linking and
+canvas resizing because why clutter the examples with code that's the same in every sample.
+See https://webglfundamentals.org/webgl/lessons/webgl-boilerplate.html
+and https://webglfundamentals.org/webgl/lessons/webgl-resizing-the-canvas.html
+for webgl-utils, m3, m4, and webgl-lessons-ui.
+-->
+<script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
+<link href="index.css" rel="stylesheet" type="text/css">
+<script src="index.js"></script>
